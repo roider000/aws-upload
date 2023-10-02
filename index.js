@@ -17,7 +17,7 @@ exports.handler = async (event, context, callback) => {
 
   try {
     // 이미지 리사이징
-    const getObject = await s3.send(new GetObjectCommand({ Bucket, key }));
+    const getObject = await s3.send(new GetObjectCommand({ Bucket, Key }));
     const buffers = [];
     for await (const data of getObject.Body) {
       buffers.push(data);
