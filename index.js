@@ -23,7 +23,7 @@ exports.handler = async (event, context, callback) => {
       buffers.push(data);
     }
     const imageBuffer = Buffer.concat(buffers);
-    console.log("original", s3Object.Body.length); // 용량 체크
+    console.log("original", imageBuffer.length); // 용량 체크
     const resizedImage = await sharp(imageBuffer)
       .resize(200, 200, { fit: "inside" })
       .toFormat(requiredFormat)
